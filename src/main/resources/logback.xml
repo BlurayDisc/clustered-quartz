@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- Enable JMX. See http://logback.qos.ch/manual/jmxConfig.html -->
+	<jmxConfigurator />
+
+	<!-- For development, configure a console logger -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- <withJansi>true</withJansi> -->
+		<encoder>
+			<pattern>%green(%date) %boldRed([%thread]) %highlight(%-5level) %cyan(%logger{15}) - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- For development, log to stdout (in addition to file) -->
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</configuration>
