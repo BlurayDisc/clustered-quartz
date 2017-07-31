@@ -7,6 +7,9 @@ public class Util {
 
     public static String randomJobName() {
 
-        return String.format("Job-%s-%s", RandomStringUtils.randomAlphabetic(3), RandomStringUtils.randomNumeric(2));
+        return String.format(
+                "Job-%s-%s",
+                RandomStringUtils.randomAlphabetic(6),
+                RandomStringUtils.randomNumeric(4));
     }
 }
