@@ -11,16 +11,19 @@ public class CommandInstanceIdGeneratorTest {
     public static void main(String[] args) throws SchedulerException {
 
         try {
-            CommandInstanceIdGenerator fail = new CommandInstanceIdGenerator("asd");
+            CommandInstanceIdGenerator fail = new CommandInstanceIdGenerator();
+            fail.setCmd("asd");
             fail.generateInstanceId();
         } catch (RuntimeException e) {
             log.error("Error: {}", e.getMessage(), e);
         }
 
-        CommandInstanceIdGenerator succeed1 = new CommandInstanceIdGenerator("hostname");
+        CommandInstanceIdGenerator succeed1 = new CommandInstanceIdGenerator();
+        succeed1.setCmd("hostname");
         log.info("Success: {}", succeed1.generateInstanceId());
 
-        CommandInstanceIdGenerator succeed2 = new CommandInstanceIdGenerator("ls -al");
+        CommandInstanceIdGenerator succeed2 = new CommandInstanceIdGenerator();
+        succeed2.setCmd("ls -al");
         log.info("Success: {}", succeed2.generateInstanceId());
     }
 }

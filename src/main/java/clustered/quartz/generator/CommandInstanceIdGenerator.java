@@ -13,11 +13,7 @@ import org.quartz.spi.InstanceIdGenerator;
  */
 public class CommandInstanceIdGenerator implements InstanceIdGenerator {
 
-    private final String cmd;
-
-    public CommandInstanceIdGenerator(String cmd) {
-        this.cmd = cmd;
-    }
+    private String cmd = "hostname";
 
     @Override
     public String generateInstanceId() throws SchedulerException {
@@ -30,5 +26,10 @@ public class CommandInstanceIdGenerator implements InstanceIdGenerator {
         } catch (IOException e) {
             throw new IllegalStateException(String.format("Failed to generate instance id from command: %s", cmd), e);
         }
+    }
+
+    public void setCmd(String cmd) {
+
+        this.cmd = cmd;
     }
 }
